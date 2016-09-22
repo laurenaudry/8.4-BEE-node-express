@@ -54,39 +54,21 @@
 	
 	var _reactRouter = __webpack_require__(172);
 	
-	var _Nav = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./lib/Nav\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-	
-	var _Nav2 = _interopRequireDefault(_Nav);
-	
-	var _Home = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./lib/Home\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _Home = __webpack_require__(235);
 	
 	var _Home2 = _interopRequireDefault(_Home);
 	
-	var _NewArticle = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./lib/NewArticle\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var _Albums = __webpack_require__(236);
 	
-	var _NewArticle2 = _interopRequireDefault(_NewArticle);
-	
-	var _Article = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./lib/Article\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-	
-	var _Article2 = _interopRequireDefault(_Article);
-	
-	var _EditArticle = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./lib/EditArticle\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-	
-	var _EditArticle2 = _interopRequireDefault(_EditArticle);
+	var _Albums2 = _interopRequireDefault(_Albums);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	(0, _reactDom.render)(_react2.default.createElement(
 	  _reactRouter.Router,
 	  { history: _reactRouter.hashHistory },
-	  _react2.default.createElement(
-	    _reactRouter.Route,
-	    { path: '/nav', component: _Nav2.default },
-	    _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/new-article/:userID', component: _NewArticle2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/edit-article/:articleID', component: _EditArticle2.default }),
-	    _react2.default.createElement(_reactRouter.Route, { path: '/article/:articleID', component: _Article2.default })
-	  )
+	  _react2.default.createElement(_reactRouter.Route, { path: '/', component: _Home2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: '/Albums/:title', component: _Albums2.default })
 	), document.getElementById('app'));
 
 /***/ },
@@ -27106,6 +27088,287 @@
 	
 	exports.default = (0, _createRouterHistory2.default)(_createHashHistory2.default);
 	module.exports = exports['default'];
+
+/***/ },
+/* 235 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _Albums = __webpack_require__(236);
+	
+	var _Albums2 = _interopRequireDefault(_Albums);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _react2.default.createClass({
+	  displayName: 'Home',
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'h1',
+	        { className: 'heading' },
+	        'Photo Albums 2.0'
+	      ),
+	      _react2.default.createElement(_Albums2.default, null)
+	    );
+	  }
+	});
+
+/***/ },
+/* 236 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(172);
+	
+	var _clickedAlbum = __webpack_require__(237);
+	
+	var _clickedAlbum2 = _interopRequireDefault(_clickedAlbum);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _react2.default.createClass({
+	  displayName: 'Albums',
+	  getDefaultProps: function getDefaultProps() {
+	    return {
+	      albums: [{
+	        album_title: "Blue",
+	        id: 0,
+	        images: [{
+	          img_src: "blue1.jpeg",
+	          image_title: "bee on blue"
+	        }, {
+	          img_src: "blue2.jpeg",
+	          image_title: "blue smoke"
+	        }, {
+	          img_src: "blue3.jpeg",
+	          image_title: "boy with saxaphone on blue wall"
+	        }]
+	      }, {
+	        album_title: "Green",
+	        id: 1,
+	        images: [{
+	          img_src: "green1.jpeg",
+	          image_title: "Frog"
+	        }, {
+	          img_src: "green2.jpeg",
+	          image_title: "Green macaron"
+	        }, {
+	          img_src: "green3.jpeg",
+	          image_title: "Plants on apartment"
+	        }]
+	      }, {
+	        album_title: "Pink",
+	        id: 2,
+	        images: [{
+	          img_src: "pink1.jpeg",
+	          image_title: "Pink smoothie"
+	        }, {
+	          img_src: "pink2.jpeg",
+	          image_title: "Pink hair"
+	        }, {
+	          img_src: "pink3.jpeg",
+	          image_title: "Pink clouds"
+	        }]
+	      }, {
+	        album_title: "Purple",
+	        id: 3,
+	        images: [{
+	          img_src: "purple1.jpeg",
+	          image_title: "Purple concert"
+	        }, {
+	          img_src: "purple2.jpeg",
+	          image_title: "Purple and red flower"
+	        }, {
+	          img_src: "purple3.jpeg",
+	          image_title: "Purple bike"
+	        }]
+	      }, {
+	        album_title: "Red",
+	        id: 4,
+	        images: [{
+	          img_src: "red1.jpeg",
+	          image_title: "Red canyon"
+	        }, {
+	          img_src: "red2.jpeg",
+	          image_title: "Red flowers"
+	        }, {
+	          img_src: "red3.jpeg",
+	          image_title: "Red smoke"
+	        }]
+	      }, {
+	        album_title: "Yellow",
+	        id: 5,
+	        images: [{
+	          img_src: "yellow1.jpeg",
+	          image_title: "Yellow trim"
+	        }, {
+	          img_src: "yellow2.jpeg",
+	          image_title: "Yellow flowers with bee"
+	        }, {
+	          img_src: "yellow3.jpeg",
+	          image_title: "Yellow flowers in field"
+	        }]
+	      }]
+	    };
+	  },
+	
+	  // current album is first one. none selected
+	  componentWillMount: function componentWillMount() {
+	    this.setState({
+	      currentAlbum: this.props.albums[0]
+	    });
+	  },
+	
+	  // when clicked target album to select it
+	  onClickNewAlbum: function onClickNewAlbum(e) {
+	    this.setState({
+	      currentAlbum: this.props.albums[e.target.id]
+	    });
+	    // e.preventDefault();
+	  },
+	  render: function render() {
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'aside',
+	        { className: 'album_sidebar' },
+	        this.props.albums.map(function (album, i) {
+	          return _react2.default.createElement(
+	            'h2',
+	            { key: i, className: 'albums_links' },
+	            _react2.default.createElement(
+	              _reactRouter.Link,
+	              { className: 'link', id: album.id, onClick: this.onClickNewAlbum, to: '/albums/' + album.album_title },
+	              album.album_title
+	            )
+	          );
+	        }, this)
+	      ),
+	      _react2.default.createElement(_clickedAlbum2.default, { album: this.state.currentAlbum })
+	    );
+	  }
+	});
+
+/***/ },
+/* 237 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(172);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	exports.default = _react2.default.createClass({
+	  displayName: 'clickedAlbum',
+	  getInitialState: function getInitialState() {
+	    return {
+	      currentImage: this.props.album.images[0],
+	      modalOpen: false
+	    };
+	  },
+	  clickExpand: function clickExpand(e) {
+	    this.setState({
+	      currentImage: this.props.album.images[e.target.id],
+	      currentImageID: e.target.id,
+	      modalOpen: true
+	    });
+	  },
+	  onClickExit: function onClickExit(e) {
+	    this.setState({
+	      modalOpen: false
+	    });
+	  },
+	  clickBack: function clickBack(e) {
+	    var newImageID = Number(this.refs.modalImage.id) - 1;
+	    if (newImageID < 0) {
+	      //do nothing
+	    } else {
+	      this.setState({
+	        currentImage: this.props.album.images[newImageID],
+	        currentImageID: newImageID
+	      });
+	    }
+	  },
+	  clickNext: function clickNext(e) {
+	    var newImageID = Number(this.refs.modalImage.id) + 1;
+	    if (newImageID >= this.props.album.images.length) {
+	      //do nothing
+	    } else {
+	      this.setState({
+	        currentImage: this.props.album.images[newImageID],
+	        currentImageID: newImageID
+	      });
+	    }
+	  },
+	  render: function render() {
+	    var _this = this;
+	
+	    return _react2.default.createElement(
+	      'div',
+	      null,
+	      _react2.default.createElement(
+	        'section',
+	        null,
+	        _react2.default.createElement(
+	          'h3',
+	          { className: 'album_title' },
+	          this.props.album.album_title
+	        ),
+	        this.props.album.images.map(function (image, i) {
+	          return _react2.default.createElement(
+	            'span',
+	            { key: i,
+	              className: 'image_container' },
+	            _react2.default.createElement('img', { className: 'current_image', key: i, id: i, onClick: _this.clickExpand, src: '../images/' + image.img_src, alt: image.image_title })
+	          );
+	        }, this),
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { className: 'back', to: '/' },
+	          'Back to album',
+	          this.state.onClickExit
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: this.state.modalOpen ? "modalShow" : "modalHide" },
+	        _react2.default.createElement('img', { className: 'modal_image', ref: 'modalImage', id: this.state.currentImageID, src: '../images/' + this.state.currentImage.img_src }),
+	        _react2.default.createElement('i', { className: 'arrows', onClick: this.clickNext })
+	      )
+	    );
+	  }
+	});
 
 /***/ }
 /******/ ]);
