@@ -1,4 +1,4 @@
-# SA Tech Voices
+# Photo Album
 
 ## Development
 1. `$ npm i`
@@ -23,8 +23,6 @@
 1. SimpleMDE
   - Markdown editor for textarea on the create blog post page
 ### Services
-1. tiny-tiny
-  - Quick Database as a service
 
 1. Heroku
 
